@@ -12,7 +12,7 @@ DROP TABLE IF EXISTS albums;
 -- genre — string for storing the record's genre(s)
 
 CREATE TABLE album (
-    id INT UNSIGNED NOT NULL AUTO_INREMENT,
+    id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     artist VARCHAR(50) DEFAULT 'NONE',
     record_name VARCHAR(50) NOT NULL,
     release_date INT NOT NULL,
