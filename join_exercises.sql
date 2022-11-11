@@ -58,7 +58,6 @@ FROM employees as e
               ON d.dept_no = de.dept_no;
 
 # Find the current salary of all current managers.
-# (CONTINUES FOREVER?)
 
 SELECT d.dept_name as Department_Name, CONCAT(e.first_name, " ", e.last_name) AS Department_Manager, s.salary AS Salary
 FROM employees as e
@@ -67,4 +66,4 @@ FROM employees as e
          JOIN departments as d
               ON d.dept_no = de.dept_no
          JOIN salaries as s
-              ON s.emp_no = s.emp_no;
+              ON s.emp_no = e.emp_no;
