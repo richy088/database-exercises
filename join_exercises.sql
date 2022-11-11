@@ -40,4 +40,31 @@ FROM employees as e
               ON d.dept_no = de.dept_no;
 
 # Find the name of all departments currently managed by women.
+SELECT d.dept_name as Department_Name, CONCAT(e.first_name, " ", e.last_name) AS Department_Manager
+FROM employees as e
+         JOIN dept_manager as de
+              ON de.emp_no = e.emp_no
+         JOIN departments as d
+              ON d.dept_no = de.dept_no
+WHERE e.gender = 'f';
 
+# Find the current titles of employees currently working in the Customer Service department.
+# (NOT WORKING)
+SELECT de.title AS Title, COUNT(E.first_name) AS Total
+FROM employees as e
+         JOIN titles as de
+              ON de.emp_no = e.emp_no
+         JOIN departments as d
+              ON d.dept_no = de.dept_no;
+
+# Find the current salary of all current managers.
+# (CONTINUES FOREVER?)
+
+SELECT d.dept_name as Department_Name, CONCAT(e.first_name, " ", e.last_name) AS Department_Manager, s.salary AS Salary
+FROM employees as e
+         JOIN dept_manager as de
+              ON de.emp_no = e.emp_no
+         JOIN departments as d
+              ON d.dept_no = de.dept_no
+         JOIN salaries as s
+              ON s.emp_no = s.emp_no;
