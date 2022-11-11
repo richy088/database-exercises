@@ -30,12 +30,14 @@ RIGHT JOIN roles ON users.role_id = roles.id;
 # Although not explicitly covered in the lesson, aggregate functions like count can be used with join queries. Use COUNT and the appropriate join type to get a list of roles along with the number of users that have a given role. Hint: You will also need to use GROUP BY in the query.
 SELECT COUNT(users.name) AS user_name, roles.name AS role_name FROM users RIGHT JOIN roles ON users.role_id = roles.id GROUP BY role_name;
 
-# Using the example in the Associative Table Joins section as a guide, write a query that shows each department along with the name of the current manager for that department.
+# Using the example in the Associative Table Joins section as a guide, write a query that shows each department along with the name of the current manager for that department. (GETTING ALL DEPT MANAGERS FOR ALL THE YEARS?)
 
-SELECT CONCAT(e.first_name, " ", e.last_name) AS Department_Manager, d.dept_name as Department_Name
+SELECT d.dept_name as Department_Name, CONCAT(e.first_name, " ", e.last_name) AS Department_Manager
 FROM employees as e
          JOIN dept_manager as de
               ON de.emp_no = e.emp_no
          JOIN departments as d
               ON d.dept_no = de.dept_no;
+
+# Find the name of all departments currently managed by women.
 
